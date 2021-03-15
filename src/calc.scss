@@ -1,0 +1,89 @@
+.App {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(135deg, #9257df, #ff9867);
+  
+  .container {
+    height: 500px;
+    width: 400px;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px -5px #21212194;
+    position: relative;
+    overflow: hidden;
+
+    .editor {
+      height: 105px;
+      padding: 10px;
+      padding-top: 35px;
+      overflow: hidden;
+      text-align: right;
+      position: relative;
+
+      &::before {
+        content: '...';
+        position: absolute;
+        top: -60px;
+        left: 15px;
+        color: #ccc;
+        font-size: 90px;
+      }
+
+      .stack {
+        height: 30px;
+        color: #87919c;
+        font-size: 20px;
+      }
+
+      .inputArea {
+        font-size: 4em;
+        width: calc(100% - 10px);
+        text-align: right;
+      }
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+      height: calc(100% - 150px);
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 100px;
+        z-index: 0;
+        background-image: linear-gradient(135deg, #e4c970, #f79566);
+      }
+
+      .cell {
+        text-align: center;
+        background: #eeedff;
+        outline: 1px solid #ded2e7;
+        line-height: 70px;
+        font-size: 30px;
+        z-index: 1;
+        cursor: pointer;
+        user-select: none;
+
+        &.primary {
+          background: #efdef9;
+        }
+
+        &.transparent {
+          background: transparent;
+        }
+
+        &.span {
+          grid-column: 1/3;
+        }
+      }
+    }
+  }
+}
